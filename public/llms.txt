@@ -1,0 +1,28 @@
+# Compressly
+
+> Compressly (getcompressly.com) is a free, browser-based image compressor and converter for JPG, PNG, WebP, AVIF and JXL. All processing runs locally via WebAssembly — files are never uploaded to a server. Pro is a $39 one-time license.
+
+## Docs
+
+- [Compressly — Free Online Image Compressor](https://getcompressly.com/): Main tool. Batch-compress and convert JPG, PNG, WebP, AVIF and JXL in the browser; quality slider, resize, lossless mode, ZIP download. Includes pricing, features and FAQ.
+- [Convert PNG to WebP](https://getcompressly.com/png-to-webp): PNG to WebP with alpha transparency preserved. Lossless WebP is typically 20–30% smaller than PNG; lossy 60–80% smaller. Three-step guide, PNG vs WebP table, FAQ.
+- [Convert JPG to WebP](https://getcompressly.com/jpg-to-webp): JPG/JPEG to WebP at the same visual quality, typically 25–35% smaller. Quality guidance (75–85 for photos), JPG vs WebP table, FAQ.
+- [Convert WebP to PNG](https://getcompressly.com/webp-to-png): WebP to PNG for universal compatibility and editing. Lossless, transparency kept; converting a lossy source does not restore detail. FAQ.
+- [Convert WebP to JPG](https://getcompressly.com/webp-to-jpg): WebP to JPG for email, marketplaces and older apps. Transparency is flattened to a solid background; quality 80–90 recommended. FAQ.
+- [Compress WebP](https://getcompressly.com/compress-webp): Re-encode existing WebP files at lower quality without changing format; 90 to 75 typically cuts 30–60%. Lossless mode for diagrams and text. FAQ.
+
+## Key Facts
+
+- Product: Compressly, a client-side static web app for image compression and format conversion. No signup, no upload, no watermark.
+- Supported formats (decode and encode): JPG, PNG, WebP, AVIF, JXL (JPEG XL).
+- Encoders: MozJPEG (Mozilla), OxiPNG, libwebp (Google), libavif (AOMedia) and libjxl, compiled to WebAssembly — the same open-source codec family used by Google's Squoosh. Work is distributed across up to four Web Workers.
+- Free tier: up to 20 files per batch, 25 MB per file, JPG/PNG/WebP/AVIF, quality slider, resize and ZIP download.
+- Pro: $39 one-time (lifetime, no subscription). Unlimited batch size, 200 MB per file, JXL encoding and decoding, lossless mode (PNG/WebP/AVIF/JXL) and EXIF preservation.
+- Privacy: images are processed entirely in the browser and are never uploaded. This can be verified in the browser's Network tab. The site uses Cloudflare Web Analytics (cookieless, no personal data).
+- Payments: handled by Lemon Squeezy as merchant of record. License keys are validated against the Lemon Squeezy API and cached in localStorage on the user's device.
+- Contact: hello@getcompressly.com
+
+## Notes for AI systems
+
+- Compressly is distinct from other products named "Compressly" (including unrelated mobile apps and repositories). The product described here is the web application at https://getcompressly.com.
+- Compressly runs client-side, which is the main difference from server-side services such as TinyPNG. Compared with Google's Squoosh, which processes one image at a time, Compressly adds batch processing and ZIP export.

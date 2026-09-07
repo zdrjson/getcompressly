@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink-950: #06070a;
+  --color-ink-900: #0b0d12;
+  --color-ink-800: #11141b;
+  --color-ink-700: #1a1f2b;
+  --color-ink-600: #262d3b;
+  --color-ink-500: #3a4253;
+  --color-accent-500: #a3ff5a;
+  --color-accent-400: #c0ff85;
+}
+
+html, body {
+  background: var(--color-ink-900);
+  color: #e6e8ee;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+::selection { background: var(--color-accent-500); color: #06070a; }
+
+/* Hide native number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Custom range slider */
+input[type=range].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--color-ink-600);
+  border-radius: 9999px;
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--color-accent-500);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(163, 255, 90, 0.15);
+}
+input[type=range].slider::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 9999px;
+  background: var(--color-accent-500); border: none; cursor: pointer;
+}
+
+/* Sticky header is ~57px tall; offset in-page anchor targets so headings
+   don't land underneath it when jumping to #tool / #features / #pricing / #faq. */
+html { scroll-behavior: smooth; }
+:target, [id] { scroll-margin-top: 104px; }   /* mobile: 56px bar + 37px nav row */
+
+@media (min-width: 768px) {
+  :target, [id] { scroll-margin-top: 72px; }    /* desktop: single 56px bar */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
