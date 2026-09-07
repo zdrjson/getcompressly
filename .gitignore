@@ -17,3 +17,6 @@ dist/
 
 # Local tooling
 .claude/
+
+# TypeScript incremental build cache
+*.tsbuildinfo

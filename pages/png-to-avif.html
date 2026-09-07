@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PNG to AVIF Converter — Free, In Your Browser | Compressly</title>
+<meta name="description" content="Convert PNG to AVIF and cut file size 50–90% while keeping transparency. Batch convert in your browser — no upload, no watermark, no sign-up. Free." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="canonical" href="https://getcompressly.com/png-to-avif" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/landing.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PNG to AVIF Converter — Free, In Your Browser">
+<meta property="og:description" content="Convert PNG to AVIF and cut file size 50–90% while keeping transparency. Batch, in-browser, no upload.">
+<meta property="og:url" content="https://getcompressly.com/png-to-avif">
+<meta property="og:image" content="https://getcompressly.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Compressly", "item": "https://getcompressly.com/" },
+    { "@type": "ListItem", "position": 2, "name": "PNG to AVIF", "item": "https://getcompressly.com/png-to-avif" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert PNG to AVIF",
+  "totalTime": "PT1M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Drop your PNG files in",
+      "text": "Drag one image or a whole folder onto the converter above. Nothing is uploaded — the files load straight into your browser's memory."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "AVIF is already selected",
+      "text": "Output is set to AVIF. Quality 75 is a strong default; raise it for artwork with flat colour, lower it when you want the smallest possible file."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Download your AVIF",
+      "text": "Save one file, or export the whole batch as a ZIP. Original filenames are kept — only the extension changes."
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much smaller is AVIF than PNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For photographs and detailed images, AVIF is commonly 50–90% smaller than the same picture stored as PNG. The exact saving depends on the image: flat graphics with few colours compress well as PNG already, so the gap is smaller there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PNG to AVIF keep transparency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AVIF supports a full alpha channel, so a transparent PNG stays transparent after conversion. Nothing is flattened onto a solid background."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do all browsers support AVIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chrome, Edge, Firefox, Safari and Opera all decode AVIF in their current versions. For very old browsers, serve AVIF inside a picture element with a PNG or WebP fallback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is anything uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The AVIF encoder runs inside your browser as WebAssembly, so your PNG files never leave your device. Open DevTools and watch the Network tab while converting to confirm it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is AVIF encoding slower than WebP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AVIF searches much harder for redundancy than WebP does, which is exactly why the files come out smaller. Expect a few seconds per image on a laptop; the work is spread across several threads."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a class="logo" href="/">
+      <span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06070a" stroke-width="2.5" stroke-linecap="round"><path d="M20 12H4m8-8v16"/></svg></span>
+      Compressly
+    </a>
+    <a class="nav-cta" href="#tool">Open the tool</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="crumb"><a href="/">Home</a> › PNG to AVIF</div>
+    <div class="badge">FREE · NO UPLOAD · KEEPS TRANSPARENCY</div>
+    <h1>PNG to AVIF converter</h1>
+    <p class="sub">AVIF is the most efficient image format a browser can display today. Convert your PNGs and watch them lose 50–90% of their weight while the transparency survives intact — all without uploading a single file.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="#tool">Convert PNG to AVIF →</a>
+      <a class="btn-ghost" href="#how">How it works</a>
+    </div>
+    <div class="trust">Runs locally via WebAssembly · Batch + ZIP export · Free forever</div>
+  </section>
+</main>
+
+<section id="tool" class="tool-embed-wrap">
+  <div id="tool-embed" data-to="avif"></div>
+</section>
+
+<main class="wrap">
+  <article>
+    <h2 id="how">What converting PNG to AVIF actually does</h2>
+    <p><strong>AVIF is a modern image format built on the AV1 video codec, and converting a PNG to it typically cuts the file to somewhere between a tenth and a half of its original size while keeping full transparency.</strong> PNG stores images losslessly, which is the right call for a master file and the wrong call for a web page — every pixel of every gradient is written out in full, and the byte count shows it.</p>
+    <p>AVIF approaches the same picture differently. It looks for structure across the whole image, spends real effort finding redundancy, and throws away only detail a person will not notice at normal viewing size. On a photograph or a screenshot with soft shading, that difference is dramatic. On a flat two-colour logo, PNG is already efficient and the gap narrows.</p>
+    <p>The practical rule: if the PNG contains a photograph, a gradient, a UI screenshot, or anything with soft edges, AVIF will beat it by a wide margin. If it is line art or a small icon, convert it anyway and compare — but expect a smaller win.</p>
+
+    <h2>Convert PNG to AVIF in three steps</h2>
+    <ol class="steps">
+      <li><b>Drop your PNG files in</b>Drag one image or a whole folder onto the converter above. Nothing is uploaded — the files load straight into your browser's memory.</li>
+      <li><b>AVIF is already selected</b>Output is set to AVIF. Quality 75 is a strong default; raise it for artwork with flat colour, lower it when you want the smallest possible file.</li>
+      <li><b>Download your AVIF</b>Save one file, or export the whole batch as a ZIP. Original filenames are kept — only the extension changes.</li>
+    </ol>
+
+    <div class="callout"><strong>A note on speed.</strong> AVIF takes longer to encode than WebP or JPG — that is the cost of the extra compression, and it is spent once. Compressly runs several encoders in parallel, so a batch is far quicker than converting images one at a time.</div>
+
+    <h2>PNG vs AVIF</h2>
+    <table class="cmp">
+      <tr><th>&nbsp;</th><th>PNG</th><th>AVIF</th></tr>
+      <tr><td>Compression</td><td>Lossless, large files</td><td>Lossy or lossless, far smaller</td></tr>
+      <tr><td>Transparency</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Colour depth</td><td>Up to 16-bit</td><td>Up to 12-bit, plus HDR</td></tr>
+      <tr><td>Encoding speed</td><td>Fast</td><td>Slower — it works harder</td></tr>
+      <tr><td>Best for</td><td>Masters, editing, print</td><td>Shipping images to browsers</td></tr>
+    </table>
+    <p>Keep the PNG as your editable master. Ship the AVIF. If you need something in between — broad support with a decent size cut — <a href="/png-to-webp">PNG to WebP</a> is the safer middle ground.</p>
+
+    <h2>Nothing you convert leaves this page</h2>
+    <p>Most converters upload your images to a server, process them there, and hand back a download link. Compressly does not. The libavif encoder is compiled to WebAssembly and runs on your own machine, which means a client mockup, an unreleased product shot, or a screenshot with something private in the corner never travels anywhere. It also means there is no queue and no per-file upload limit imposed by someone else's bandwidth.</p>
+
+    <h2>More conversions</h2>
+    <div class="related">
+      <a href="/jpg-to-avif">JPG to AVIF <span>Shrink photos further</span></a>
+      <a href="/avif-to-png">AVIF to PNG <span>Back to a universal format</span></a>
+      <a href="/avif-to-jpg">AVIF to JPG <span>Maximum compatibility</span></a>
+      <a href="/png-to-webp">PNG to WebP <span>Broader browser support</span></a>
+    </div>
+
+    <div class="faq">
+      <h2>Questions</h2>
+      <details><summary>How much smaller is AVIF than PNG?</summary><p>For photographs and detailed images, AVIF is commonly 50–90% smaller than the same picture stored as PNG. The exact saving depends on the image: flat graphics with few colours compress well as PNG already, so the gap is smaller there.</p></details>
+      <details><summary>Does PNG to AVIF keep transparency?</summary><p>Yes. AVIF supports a full alpha channel, so a transparent PNG stays transparent after conversion. Nothing is flattened onto a solid background.</p></details>
+      <details><summary>Do all browsers support AVIF?</summary><p>Chrome, Edge, Firefox, Safari and Opera all decode AVIF in their current versions. For very old browsers, serve AVIF inside a picture element with a PNG or WebP fallback.</p></details>
+      <details><summary>Is anything uploaded to a server?</summary><p>No. The AVIF encoder runs inside your browser as WebAssembly, so your PNG files never leave your device. Open DevTools and watch the Network tab while converting to confirm it.</p></details>
+      <details><summary>Why is AVIF encoding slower than WebP?</summary><p>AVIF searches much harder for redundancy than WebP does, which is exactly why the files come out smaller. Expect a few seconds per image on a laptop; the work is spread across several threads.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>Ready to convert?</h2>
+      <p>Drop your PNGs in and watch them shrink — privately, in your browser.</p>
+      <a class="btn-primary" href="#tool">Convert PNG to AVIF →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/">Compressly home</a>
+    <a href="/png-to-avif">PNG to AVIF</a>
+    <a href="/jpg-to-avif">JPG to AVIF</a>
+    <a href="/avif-converter">AVIF converter</a>
+    <a href="/privacy">Privacy</a>
+    <div class="copy">© 2026 Compressly. Compresses images — not your privacy.</div>
+  </div>
+</footer>
+<script type="module" src="/src/embed.tsx"></script>
+</body>
+</html>

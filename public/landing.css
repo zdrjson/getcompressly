@@ -151,3 +151,21 @@ footer.site .copy { color: #6b7280; font-size: 12.5px; width: 100%; text-align: 
   .related { grid-template-columns: 1fr; }
   .hero { padding: 44px 0 30px; }
 }
+
+/* Embedded compressor on landing pages. The tool markup comes from the React
+   app, which is Tailwind-styled, so this only frames it. */
+.tool-embed-wrap {
+  max-width: 1080px;
+  margin: 0 auto 8px;
+  padding: 0 20px 8px;
+}
+.tool-embed-wrap #tool-embed:empty::before {
+  content: "Loading the compressor…";
+  display: block;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--ink-600);
+  border-radius: 14px;
+  font-size: 14px;
+}
