@@ -21,6 +21,12 @@ export default function Compressor({ license, onUpgrade, initialFormat }: Props)
   const [settings, setSettings] = useState<CompressSettings>(
     initialFormat ? { ...DEFAULT_SETTINGS, format: initialFormat } : DEFAULT_SETTINGS,
   );
+  // addFiles is memoised on [lim], so a runJob captured in its closure would keep
+  // whatever `settings` looked like on that render — changing quality or format
+  // and *then* dropping files would silently compress with the old values.
+  // Reading settings through a ref keeps every job on the current values.
+  const settingsRef = useRef(settings);
+  settingsRef.current = settings;
   const [warning, setWarning] = useState<string | null>(null);
   const entriesRef = useRef<FileEntry[]>([]);
   entriesRef.current = entries;
@@ -36,6 +42,25 @@ export default function Compressor({ license, onUpgrade, initialFormat }: Props)
   // Auto-revoke object URLs on unmount
   useEffect(() => () => {
     entriesRef.current.forEach((e) => e.previewUrl && URL.revokeObjectURL(e.previewUrl));
+  }, []);
+
+  const runJob = useCallback(async (id: string, file: File) => {
+    setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'compressing' as const, result: undefined, error: undefined } : e));
+    try {
+      const buffer = await file.arrayBuffer();
+      const job: JobInput = {
+        id,
+        name: file.name,
+        originalSize: file.size,
+        originalType: file.type,
+        buffer,
+        settings: settingsRef.current,
+      };
+      const result = await compressOne(job);
+      setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'done', result } : e));
+    } catch (err) {
+      setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'error', error: (err as Error).message } : e));
+    }
   }, []);
 
   const addFiles = useCallback((files: File[]) => {
@@ -76,26 +101,8 @@ export default function Compressor({ license, onUpgrade, initialFormat }: Props)
     // Kick off compression for the newly added entries — pass the file directly,
     // don't look it up by id (state hasn't flushed yet).
     accepted.forEach((e) => void runJob(e.id, e.file));
-  }, [lim]);
+  }, [lim, runJob]);
 
-  const runJob = useCallback(async (id: string, file: File) => {
-    setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'compressing' as const, result: undefined, error: undefined } : e));
-    try {
-      const buffer = await file.arrayBuffer();
-      const job: JobInput = {
-        id,
-        name: file.name,
-        originalSize: file.size,
-        originalType: file.type,
-        buffer,
-        settings,
-      };
-      const result = await compressOne(job);
-      setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'done', result } : e));
-    } catch (err) {
-      setEntries((prev) => prev.map((e) => e.id === id ? { ...e, status: 'error', error: (err as Error).message } : e));
-    }
-  }, [settings]);
 
   // Re-run with new settings: re-compress every entry from its source file.
   const reprocessAll = useCallback(() => {

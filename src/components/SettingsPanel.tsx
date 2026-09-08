@@ -10,6 +10,16 @@ interface Props {
   onUpgrade: () => void;
 }
 
+const EFFORT_LABEL = { fast: 'Fast', balanced: 'Balanced', max: 'Maximum' } as const;
+
+// The encoders each have their own effort scale; the UI offers three honest
+// bands instead of a 0-9 number nobody can reason about.
+function effortBand(effort: number): keyof typeof EFFORT_LABEL {
+  if (effort <= 3) return 'fast';
+  if (effort <= 6) return 'balanced';
+  return 'max';
+}
+
 const FORMAT_CHOICES: Array<{ value: 'keep' | Format; label: string; pro?: boolean }> = [
   { value: 'keep', label: 'Keep original' },
   { value: 'jpeg', label: 'JPG' },
@@ -72,10 +82,39 @@ export default function SettingsPanel({ settings, onChange, license, onUpgrade }
         </div>
       </div>
 
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <label className="text-xs font-medium uppercase tracking-wide text-zinc-400">Effort</label>
+          <span className="font-mono text-sm text-accent-400">{EFFORT_LABEL[effortBand(settings.effort)]}</span>
+        </div>
+        <div className="grid grid-cols-3 gap-1.5">
+          {([2, 5, 8] as const).map((v) => {
+            const active = effortBand(settings.effort) === effortBand(v);
+            return (
+              <button
+                key={v}
+                onClick={() => set('effort', v)}
+                className={`rounded-md border px-2 py-2 text-xs font-medium transition ${
+                  active
+                    ? 'border-accent-500 bg-accent-500/10 text-accent-400'
+                    : 'border-ink-600 bg-ink-900 text-zinc-300 hover:border-ink-500'
+                }`}
+              >
+                {EFFORT_LABEL[effortBand(v)]}
+              </button>
+            );
+          })}
+        </div>
+        <p className="mt-1.5 text-[11px] leading-snug text-zinc-500">
+          How hard the encoder searches. Higher is slower and always lossless — it changes
+          file size, never the pixels.
+        </p>
+      </div>
+
       <div className="flex items-start justify-between gap-3 rounded-md border border-ink-700 bg-ink-900 p-3">
         <div>
           <div className="text-sm font-medium">Lossless mode</div>
-          <div className="text-xs text-zinc-500">Bigger files, byte-perfect. PNG / WebP / AVIF / JXL only.</div>
+          <div className="text-xs text-zinc-500">Byte-perfect, no quality loss. Lossless WebP is usually smaller than an optimised PNG. WebP / AVIF / JXL — PNG output is always lossless.</div>
         </div>
         {isPro ? (
           <Toggle on={settings.lossless} onChange={(v) => set('lossless', v)} />
