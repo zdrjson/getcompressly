@@ -116,11 +116,7 @@ export default function SettingsPanel({ settings, onChange, license, onUpgrade }
           <div className="text-sm font-medium">Lossless mode</div>
           <div className="text-xs text-zinc-500">Byte-perfect, no quality loss. Lossless WebP is usually smaller than an optimised PNG. WebP / AVIF / JXL — PNG output is always lossless.</div>
         </div>
-        {isPro ? (
-          <Toggle on={settings.lossless} onChange={(v) => set('lossless', v)} />
-        ) : (
-          <button onClick={onUpgrade} className="shrink-0 rounded-md bg-accent-500/10 px-2 py-1 text-[10px] font-bold text-accent-400 ring-1 ring-inset ring-accent-500/30">PRO</button>
-        )}
+        <Toggle on={settings.lossless} onChange={(v) => set('lossless', v)} />
       </div>
 
       <div className="flex items-start justify-between gap-3 rounded-md border border-ink-700 bg-ink-900 p-3">

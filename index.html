@@ -88,10 +88,10 @@
           "featureList": [
             "Batch compression with ZIP export",
             "Convert between JPG, PNG, WebP, AVIF and JXL",
-            "Quality slider and lossless mode",
+            "Quality slider, effort control and lossless mode — free",
             "Resize by longest side, width or height",
             "Runs entirely in the browser — no upload",
-            "EXIF preservation (Pro)"
+            "JXL encoding and EXIF preservation (Pro)"
           ],
           "publisher": { "@id": "https://getcompressly.com/#organization" },
           "offers": [
@@ -110,7 +110,7 @@
               "price": "39",
               "priceCurrency": "USD",
               "url": "https://getcompressly.com/#pricing",
-              "description": "One-time lifetime license. Unlimited batch size, 200 MB per file, JXL, lossless mode and EXIF preservation."
+              "description": "One-time lifetime license. Unlimited batch size, 200 MB per file, JXL encoding and EXIF preservation."
             }
           ]
         }
@@ -135,7 +135,7 @@
         {
           "@type": "Question",
           "name": "Is Compressly really free?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free tier handles up to 20 images per batch at 25MB each with the four mainstream formats. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200MB, unlocks JXL encoding, lossless mode and EXIF preservation." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and lossless mode is free too. The free tier handles up to 20 images per batch at 25MB each across JPG, PNG, WebP and AVIF. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200MB, and adds JXL encoding and EXIF preservation." }
         },
         {
           "@type": "Question",
@@ -150,7 +150,7 @@
         {
           "@type": "Question",
           "name": "What is JXL and why does Pro require it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast." }
+          "acceptedAnswer": { "@type": "Answer", "text": "JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast. Lossless mode itself is free — it works with PNG, WebP and AVIF." }
         }
       ]
     }
@@ -210,13 +210,13 @@
         <h3 style="font-size:17px;margin:20px 0 4px">Which image formats are supported?</h3>
         <p style="color:#9aa2b1;margin:0 0 14px">JPG, PNG, WebP, AVIF and JXL — for both decoding and encoding. You can convert freely between any of them in a single pass.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">Is Compressly really free?</h3>
-        <p style="color:#9aa2b1;margin:0 0 14px">Yes. The free tier handles up to 20 images per batch at 25 MB each with the four mainstream formats. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200 MB, unlocks JXL encoding, lossless mode and EXIF preservation.</p>
+        <p style="color:#9aa2b1;margin:0 0 14px">Yes, and lossless mode is free too. The free tier handles up to 20 images per batch at 25 MB each across JPG, PNG, WebP and AVIF. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200 MB, and adds JXL encoding and EXIF preservation.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">Are my images uploaded anywhere?</h3>
         <p style="color:#9aa2b1;margin:0 0 14px">No. Compressly is a static client-side app — there is no server upload step. Open DevTools → Network tab while compressing to verify nothing is sent.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">How does Compressly differ from TinyPNG or Squoosh?</h3>
         <p style="color:#9aa2b1;margin:0 0 14px">TinyPNG compresses on its servers, so your files are uploaded. Squoosh runs locally but works one image at a time. Compressly stays local like Squoosh and adds true batch processing, ZIP export and a one-time Pro license for power users.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">What is JXL and why does Pro require it?</h3>
-        <p style="color:#9aa2b1;margin:0 0 14px">JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast.</p>
+        <p style="color:#9aa2b1;margin:0 0 14px">JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast. Lossless mode itself is free — it works with PNG, WebP and AVIF.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">Does Pro work across browsers and devices?</h3>
         <p style="color:#9aa2b1;margin:0 0 14px">Yes. Your license unlocks Compressly on every browser and device you use it on — no seat limit. Just paste the key into "Have a key?" at the top.</p>
         <h3 style="font-size:17px;margin:20px 0 4px">What's your refund policy?</h3>

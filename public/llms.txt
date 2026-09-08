@@ -17,7 +17,7 @@
 - Supported formats (decode and encode): JPG, PNG, WebP, AVIF, JXL (JPEG XL).
 - Encoders: MozJPEG (Mozilla), OxiPNG, libwebp (Google), libavif (AOMedia) and libjxl, compiled to WebAssembly — the same open-source codec family used by Google's Squoosh. Work is distributed across up to four Web Workers.
 - Free tier: up to 20 files per batch, 25 MB per file, JPG/PNG/WebP/AVIF, quality slider, resize and ZIP download.
-- Pro: $39 one-time (lifetime, no subscription). Unlimited batch size, 200 MB per file, JXL encoding and decoding, lossless mode (PNG/WebP/AVIF/JXL) and EXIF preservation.
+- Pro: $39 one-time (lifetime, no subscription). Unlimited batch size, 200 MB per file, JXL encoding and decoding, and EXIF preservation. Lossless mode is free for PNG, WebP and AVIF.
 - Privacy: images are processed entirely in the browser and are never uploaded. This can be verified in the browser's Network tab. The site uses Cloudflare Web Analytics (cookieless, no personal data).
 - Payments: handled by Lemon Squeezy as merchant of record. License keys are validated against the Lemon Squeezy API and cached in localStorage on the user's device.
 - Contact: hello@getcompressly.com

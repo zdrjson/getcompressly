@@ -15,7 +15,7 @@ export const FREE_LIMITS = {
   maxBatch: 20,
   maxFileSizeMB: 25,
   allowedFormats: new Set(['jpeg', 'png', 'webp', 'avif']),
-  allowLossless: false,
+  allowLossless: true,
   allowExifPreserve: false,
 };
 

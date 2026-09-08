@@ -6,6 +6,7 @@ const LS_CHECKOUT_URL = (import.meta.env.VITE_LS_CHECKOUT_URL as string) || 'htt
 
 const FREE = [
   'Up to 20 files per batch',
+  'Lossless mode (PNG/WebP/AVIF)',
   'Max 25 MB per file',
   'JPG · PNG · WebP · AVIF',
   'Quality slider + resize',
@@ -17,7 +18,6 @@ const PRO = [
   'Unlimited batch size',
   'Max 200 MB per file',
   'JXL encoding + decoding',
-  'Lossless mode (PNG/WebP/AVIF/JXL)',
   'EXIF metadata preservation',
   'Advanced encoder controls (effort, chroma)',
   'Priority support · lifetime updates',

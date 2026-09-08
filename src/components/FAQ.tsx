@@ -11,7 +11,7 @@ const QA = [
   },
   {
     q: 'Is Compressly really free?',
-    a: 'Yes. The free tier handles up to 20 images per batch at 25 MB each with the four mainstream formats. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200 MB, unlocks JXL encoding, lossless mode and EXIF preservation.',
+    a: 'Yes, and lossless mode is free too. The free tier handles up to 20 images per batch at 25 MB each across JPG, PNG, WebP and AVIF. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200 MB, and adds JXL encoding and EXIF preservation.',
   },
   {
     q: 'Are my images uploaded anywhere?',
@@ -23,7 +23,7 @@ const QA = [
   },
   {
     q: 'What is JXL and why does Pro require it?',
-    a: 'JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast.',
+    a: 'JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast. Lossless mode itself is free — it works with PNG, WebP and AVIF.',
   },
   {
     q: 'Does Pro work across browsers and devices?',

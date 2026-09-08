@@ -22,7 +22,7 @@ const ITEMS = [
   },
   {
     title: 'Quality you can dial',
-    desc: 'Quality slider, lossless mode, encoder effort, chroma controls. Same knobs the pros use — surfaced cleanly.',
+    desc: 'Quality slider, lossless mode and encoder effort — all free. The same knobs the pros use, surfaced cleanly.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M4 6h6M14 6h6M4 18h6M14 18h6M12 4v4M12 16v4"/></svg>
     ),
