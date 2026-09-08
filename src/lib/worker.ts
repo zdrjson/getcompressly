@@ -36,15 +36,60 @@ async function decode(buffer: ArrayBuffer, fmt: Format): Promise<ImageData> {
   return result;
 }
 
+// Effort (0-9 in the UI) mapped onto each encoder's own scale.
+// OxiPNG levels above 4 cost a lot of time for very little extra saving.
+function effortToOxipngLevel(effort: number): number {
+  if (effort <= 2) return 1;
+  if (effort <= 4) return 2;
+  if (effort <= 6) return 3;
+  return 4;
+}
+
+// MozJPEG repeats its trellis search; more loops squeeze out slightly more at a
+// roughly linear time cost. One is the library default.
+function effortToTrellisLoops(effort: number): number {
+  if (effort <= 2) return 1;
+  if (effort <= 5) return 2;
+  return 3;
+}
+
 async function encode(img: ImageData, fmt: Format, quality: number, lossless: boolean, effort: number): Promise<ArrayBuffer> {
   switch (fmt) {
     case 'jpeg': {
       const m = await import('@jsquash/jpeg');
-      return await m.encode(img, { quality });
+      // jSquash already defaults to progressive + optimize_coding, so those are
+      // not ours to switch on. Trellis quantisation is the remaining knob, and
+      // measuring it showed files getting *larger* at a fixed quality number —
+      // it is a rate-distortion optimiser, spending bytes on fidelity rather
+      // than saving them. Wrong trade for a compressor's default, so it is
+      // reserved for the high end of the effort slider.
+      const trellis = effort >= 7
+        ? {
+            trellis_multipass: true,
+            trellis_opt_zero: true,
+            trellis_opt_table: true,
+            trellis_loops: effortToTrellisLoops(effort),
+          }
+        : {};
+      return await m.encode(img, { quality, auto_subsample: true, ...trellis });
     }
     case 'png': {
-      const m = await import('@jsquash/png');
-      return await m.encode(img);
+      // @jsquash/png only *writes* a PNG — it performs no optimisation, which is
+      // why re-encoding an already-saved PNG returned the same or larger bytes.
+      // OxiPNG does the real work: it retries every filter and deflate strategy
+      // and keeps the smallest valid result. Always lossless.
+      const [png, oxi] = await Promise.all([
+        import('@jsquash/png'),
+        import('@jsquash/oxipng'),
+      ]);
+      const raw = await png.encode(img);
+      return await oxi.optimise(raw, {
+        level: effortToOxipngLevel(effort),
+        interlace: false,
+        // Fully transparent pixels can be rewritten to one colour: invisible,
+        // and it compresses far better.
+        optimiseAlpha: true,
+      });
     }
     case 'webp': {
       const m = await import('@jsquash/webp');
