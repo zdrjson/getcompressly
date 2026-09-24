@@ -1,0 +1,405 @@
+{
+  "generated": "2026-09-24",
+  "settings": {
+    "quality": 75,
+    "effort": 4,
+    "note": "Site defaults; see src/lib/worker.ts"
+  },
+  "baseline": "Each image written as an unoptimised PNG by @jsquash/png",
+  "codecVersions": {
+    "@jsquash/jpeg": "1.6.0",
+    "@jsquash/png": "3.1.1",
+    "@jsquash/oxipng": "2.3.0",
+    "@jsquash/webp": "1.5.0",
+    "@jsquash/avif": "2.1.1"
+  },
+  "metric": "SSIM on BT.601 luma after compositing over white; 8x8 windows, stride 4",
+  "images": [
+    {
+      "file": "photo-astronaut.png",
+      "kind": "photo",
+      "width": 1600,
+      "height": 1562,
+      "alpha": false,
+      "sourceBytes": 5113683,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 2954248,
+          "saving": 0.4223,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 288432,
+          "saving": 0.9436,
+          "ssim": 0.9736
+        },
+        "webp": {
+          "bytes": 235346,
+          "saving": 0.954,
+          "ssim": 0.9687
+        },
+        "webp-lossless": {
+          "bytes": 2263922,
+          "saving": 0.5573,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 322584,
+          "saving": 0.9369,
+          "ssim": 0.9841
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9736,
+        "jpegBytes": 288432,
+        "webp": {
+          "quality": 79,
+          "bytes": 275290,
+          "ssim": 0.975,
+          "vsJpeg": 0.0456
+        },
+        "avif": {
+          "quality": 60,
+          "bytes": 226650,
+          "ssim": 0.9743,
+          "vsJpeg": 0.2142
+        }
+      }
+    },
+    {
+      "file": "photo-earth.png",
+      "kind": "photo",
+      "width": 1600,
+      "height": 1600,
+      "alpha": false,
+      "sourceBytes": 2614518,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 1784569,
+          "saving": 0.3174,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 196260,
+          "saving": 0.9249,
+          "ssim": 0.9858
+        },
+        "webp": {
+          "bytes": 171318,
+          "saving": 0.9345,
+          "ssim": 0.985
+        },
+        "webp-lossless": {
+          "bytes": 1256612,
+          "saving": 0.5194,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 241178,
+          "saving": 0.9078,
+          "ssim": 0.9941
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9858,
+        "jpegBytes": 196260,
+        "webp": {
+          "quality": 76,
+          "bytes": 177908,
+          "ssim": 0.9858,
+          "vsJpeg": 0.0935
+        },
+        "avif": {
+          "quality": 58,
+          "bytes": 163543,
+          "ssim": 0.9869,
+          "vsJpeg": 0.1667
+        }
+      }
+    },
+    {
+      "file": "photo-dune-flowers.png",
+      "kind": "photo",
+      "width": 1600,
+      "height": 1043,
+      "alpha": false,
+      "sourceBytes": 4814578,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 3343553,
+          "saving": 0.3055,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 376926,
+          "saving": 0.9217,
+          "ssim": 0.9286
+        },
+        "webp": {
+          "bytes": 420458,
+          "saving": 0.9127,
+          "ssim": 0.9609
+        },
+        "webp-lossless": {
+          "bytes": 2544172,
+          "saving": 0.4716,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 581062,
+          "saving": 0.8793,
+          "ssim": 0.9807
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9286,
+        "jpegBytes": 376926,
+        "webp": {
+          "quality": 44,
+          "bytes": 302652,
+          "ssim": 0.9298,
+          "vsJpeg": 0.1971
+        },
+        "avif": {
+          "quality": 47,
+          "bytes": 312066,
+          "ssim": 0.9293,
+          "vsJpeg": 0.1721
+        }
+      }
+    },
+    {
+      "file": "photo-owl-nest.png",
+      "kind": "photo",
+      "width": 1600,
+      "height": 1067,
+      "alpha": false,
+      "sourceBytes": 2475681,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 1186438,
+          "saving": 0.5208,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 110909,
+          "saving": 0.9552,
+          "ssim": 0.9785
+        },
+        "webp": {
+          "bytes": 81934,
+          "saving": 0.9669,
+          "ssim": 0.9751
+        },
+        "webp-lossless": {
+          "bytes": 906334,
+          "saving": 0.6339,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 123860,
+          "saving": 0.95,
+          "ssim": 0.9885
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9785,
+        "jpegBytes": 110909,
+        "webp": {
+          "quality": 78,
+          "bytes": 92836,
+          "ssim": 0.9785,
+          "vsJpeg": 0.163
+        },
+        "avif": {
+          "quality": 58,
+          "bytes": 78384,
+          "ssim": 0.9786,
+          "vsJpeg": 0.2933
+        }
+      }
+    },
+    {
+      "file": "screenshot-ui.png",
+      "kind": "screenshot",
+      "width": 1440,
+      "height": 900,
+      "alpha": false,
+      "sourceBytes": 215077,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 64483,
+          "saving": 0.7002,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 48026,
+          "saving": 0.7767,
+          "ssim": 0.9909
+        },
+        "webp": {
+          "bytes": 33600,
+          "saving": 0.8438,
+          "ssim": 0.9956
+        },
+        "webp-lossless": {
+          "bytes": 43044,
+          "saving": 0.7999,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 37504,
+          "saving": 0.8256,
+          "ssim": 0.9985
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9909,
+        "jpegBytes": 48026,
+        "webp": {
+          "quality": 29,
+          "bytes": 21352,
+          "ssim": 0.991,
+          "vsJpeg": 0.5554
+        },
+        "avif": {
+          "quality": 44,
+          "bytes": 19884,
+          "ssim": 0.9919,
+          "vsJpeg": 0.586
+        }
+      }
+    },
+    {
+      "file": "product-cutout-alpha.png",
+      "kind": "graphic-alpha",
+      "width": 1200,
+      "height": 1149,
+      "alpha": true,
+      "sourceBytes": 704195,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 182448,
+          "saving": 0.7409,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 32205,
+          "saving": 0.9543,
+          "ssim": 0.9927,
+          "flattenedOnWhite": true
+        },
+        "webp": {
+          "bytes": 55928,
+          "saving": 0.9206,
+          "ssim": 0.9959
+        },
+        "webp-lossless": {
+          "bytes": 152952,
+          "saving": 0.7828,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 33215,
+          "saving": 0.9528,
+          "ssim": 0.9971
+        }
+      }
+    },
+    {
+      "file": "flat-graphic.png",
+      "kind": "graphic",
+      "width": 1400,
+      "height": 980,
+      "alpha": false,
+      "sourceBytes": 96625,
+      "outputs": {
+        "png-oxipng": {
+          "bytes": 47224,
+          "saving": 0.5113,
+          "ssim": 1
+        },
+        "jpeg": {
+          "bytes": 32702,
+          "saving": 0.6616,
+          "ssim": 0.9963
+        },
+        "webp": {
+          "bytes": 22532,
+          "saving": 0.7668,
+          "ssim": 0.9991
+        },
+        "webp-lossless": {
+          "bytes": 21292,
+          "saving": 0.7796,
+          "ssim": 1
+        },
+        "avif": {
+          "bytes": 15544,
+          "saving": 0.8391,
+          "ssim": 0.9994
+        }
+      },
+      "matchedToJpeg": {
+        "targetSsim": 0.9963,
+        "jpegBytes": 32702,
+        "webp": {
+          "quality": 19,
+          "bytes": 13350,
+          "ssim": 0.9964,
+          "vsJpeg": 0.5918
+        },
+        "avif": {
+          "quality": 35,
+          "bytes": 6169,
+          "ssim": 0.9964,
+          "vsJpeg": 0.8114
+        }
+      }
+    }
+  ],
+  "summary": {
+    "png-oxipng": {
+      "label": "PNG (OxiPNG, lossless)",
+      "medianSaving": 0.5113,
+      "medianSavingPhotos": 0.3699,
+      "medianSsim": 1
+    },
+    "jpeg": {
+      "label": "JPEG (MozJPEG q75)",
+      "medianSaving": 0.9249,
+      "medianSavingPhotos": 0.9343,
+      "medianSsim": 0.9858
+    },
+    "webp": {
+      "label": "WebP (q75)",
+      "medianSaving": 0.9206,
+      "medianSavingPhotos": 0.9443,
+      "medianSsim": 0.985
+    },
+    "webp-lossless": {
+      "label": "WebP (lossless)",
+      "medianSaving": 0.6339,
+      "medianSavingPhotos": 0.5383,
+      "medianSsim": 1
+    },
+    "avif": {
+      "label": "AVIF (q75)",
+      "medianSaving": 0.9078,
+      "medianSavingPhotos": 0.9224,
+      "medianSsim": 0.9941
+    }
+  },
+  "matchedToJpeg": {
+    "webp": {
+      "medianVsJpeg": 0.18,
+      "medianVsJpegPhotos": 0.1283,
+      "images": 6
+    },
+    "avif": {
+      "medianVsJpeg": 0.2538,
+      "medianVsJpegPhotos": 0.1931,
+      "images": 6
+    }
+  }
+}

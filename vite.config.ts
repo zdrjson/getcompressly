@@ -60,6 +60,7 @@ export default defineConfig({
         'avif-to-jpg': resolve(root, 'pages/avif-to-jpg.html'),
         'avif-to-png': resolve(root, 'pages/avif-to-png.html'),
         'avif-converter': resolve(root, 'pages/avif-converter.html'),
+        benchmark: resolve(root, 'pages/benchmark.html'),
       },
     },
   },

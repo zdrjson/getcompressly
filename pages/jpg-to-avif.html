@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JPG to AVIF Converter — Free, No Upload | Compressly</title>
-<meta name="description" content="Convert JPG and JPEG photos to AVIF and cut 30–50% more size at the same quality. Batch convert in your browser — no upload, no watermark, free." />
+<meta name="description" content="Convert JPG and JPEG photos to AVIF: a median 19% smaller than optimised JPEG at the same quality in our tests. Batch convert in your browser, no upload, free." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <link rel="canonical" href="https://getcompressly.com/jpg-to-avif" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/landing.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JPG to AVIF Converter — Free, No Upload">
-<meta property="og:description" content="Convert JPG photos to AVIF and cut 30–50% more size at matched quality. Batch, in-browser, no upload.">
+<meta property="og:description" content="Convert JPG photos to AVIF: smaller files at matched visual quality. Batch, in-browser, no upload.">
 <meta property="og:url" content="https://getcompressly.com/jpg-to-avif">
 <meta property="og:image" content="https://getcompressly.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -79,7 +79,7 @@
       "name": "Is AVIF really smaller than JPG?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — at matched visual quality AVIF is usually 30–50% smaller than JPG. The gain is largest on detailed photographs and smallest on very small images, where format overhead matters more."
+        "text": "Yes. At matched visual quality we measured AVIF 17–29% smaller than an optimised MozJPEG on photographs, and 59–81% smaller on a screenshot and a flat graphic. The gain is smallest on very small images, where format overhead matters more."
       }
     },
     {
@@ -134,12 +134,13 @@
     <div class="crumb"><a href="/">Home</a> › JPG to AVIF</div>
     <div class="badge">FREE · NO UPLOAD · BATCH READY</div>
     <h1>JPG to AVIF converter</h1>
-    <p class="sub">Your JPGs are already compressed. AVIF compresses them again, properly — usually 30–50% smaller at the same visual quality, with no upload and no watermark.</p>
+    <p class="sub">Your JPGs are already compressed. AVIF compresses them again, properly — smaller at the same visual quality, with no upload and no watermark.</p>
     <div class="cta-row">
       <a class="btn-primary" href="#tool">Convert JPG to AVIF →</a>
       <a class="btn-ghost" href="#how">How it works</a>
     </div>
     <div class="trust">Runs locally via WebAssembly · Batch + ZIP export · Free forever</div>
+    <p class="byline">Updated <time datetime="2026-09-24">24 September 2026</time> · Figures measured in <a href="/benchmark">our compression benchmark</a></p>
   </section>
 </main>
 
@@ -150,7 +151,7 @@
 <main class="wrap">
   <article>
     <h2 id="how">Why convert JPG to AVIF</h2>
-    <p><strong>AVIF typically stores the same photograph in 30–50% fewer bytes than JPG at matched visual quality, because it uses compression developed decades later.</strong> JPG was standardised in 1992 and has served the web well, but the maths behind it has been comprehensively improved on since.</p>
+    <p><strong>At matched visual quality, AVIF stored our test photographs in a median 19% fewer bytes than an optimised JPEG, and screenshots and flat graphics in 59–81% fewer, because it uses compression developed decades later.</strong> The full method and data are in <a href="/benchmark">our benchmark</a>. JPG was standardised in 1992 and has served the web well, but the maths behind it has been comprehensively improved on since.</p>
     <p>That saving is not free: AVIF takes noticeably longer to encode. You pay that cost once, when you convert, and every visitor afterwards downloads the smaller file. On a gallery or a product catalogue the arithmetic is straightforward.</p>
     <p>One honest caveat. A JPG is already lossy — detail was discarded when it was first saved, and re-encoding cannot bring it back. What AVIF does is store what remains far more efficiently. At quality 70–85 the result is visually indistinguishable from the JPG you started with, at a fraction of the weight.</p>
 
@@ -166,7 +167,7 @@
     <h2>JPG vs AVIF</h2>
     <table class="cmp">
       <tr><th>&nbsp;</th><th>JPG</th><th>AVIF</th></tr>
-      <tr><td>Compression</td><td>1992-era, less efficient</td><td>Modern, 30–50% smaller</td></tr>
+      <tr><td>Compression</td><td>1992-era, less efficient</td><td>Modern, 17–29% smaller on photos</td></tr>
       <tr><td>Transparency</td><td>No</td><td>Yes</td></tr>
       <tr><td>Encoding speed</td><td>Very fast</td><td>Slower — it works harder</td></tr>
       <tr><td>Browser support</td><td>Universal</td><td>All current browsers</td></tr>
@@ -187,7 +188,7 @@
 
     <div class="faq">
       <h2>Questions</h2>
-      <details><summary>Is AVIF really smaller than JPG?</summary><p>Yes — at matched visual quality AVIF is usually 30–50% smaller than JPG. The gain is largest on detailed photographs and smallest on very small images, where format overhead matters more.</p></details>
+      <details><summary>Is AVIF really smaller than JPG?</summary><p>Yes. At matched visual quality we measured AVIF 17–29% smaller than an optimised MozJPEG on photographs, and 59–81% smaller on a screenshot and a flat graphic. The gain is smallest on very small images, where format overhead matters more.</p></details>
       <details><summary>Will converting JPG to AVIF lose quality?</summary><p>A JPG is already lossy, so a re-encode discards a little more in theory. At quality 75–85 the AVIF is visually indistinguishable from the source while being substantially lighter.</p></details>
       <details><summary>Why does conversion take a few seconds per image?</summary><p>AVIF searches much harder for redundancy than JPG does, which is precisely why the output is smaller. Compressly spreads the work across several parallel workers to keep batches quick.</p></details>
       <details><summary>Can I convert a whole folder at once?</summary><p>Yes. Drop them all in and download the results as one ZIP. The free tier handles 20 files per batch at 25 MB each; Pro removes the batch limit and raises the cap to 200 MB.</p></details>

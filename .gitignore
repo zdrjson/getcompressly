@@ -23,3 +23,6 @@ dist/
 
 # IndexNow key (the public/<key>.txt file is the real artifact)
 .indexnow-key
+
+# Benchmark photos are fetched and normalised by scripts/benchmark.mjs
+bench/corpus/photo-*.png
