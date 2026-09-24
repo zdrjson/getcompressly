@@ -19,7 +19,6 @@ const PRO = [
   'Max 200 MB per file',
   'JXL encoding + decoding',
   'EXIF metadata preservation',
-  'Advanced encoder controls (effort, chroma)',
   'Priority support · lifetime updates',
   'Use on unlimited devices',
 ];

@@ -137,12 +137,12 @@
         {
           "@type": "Question",
           "name": "Is Compressly really free?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and lossless mode is free too. The free tier handles up to 20 images per batch at 25MB each across JPG, PNG, WebP and AVIF. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200MB, and adds JXL encoding and EXIF preservation." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and lossless mode is free too. The free tier handles up to 20 images per batch at 25 MB each across JPG, PNG, WebP and AVIF. Pro ($39 one-time, lifetime) removes the batch limit, raises the size cap to 200 MB, and adds JXL encoding and EXIF preservation." }
         },
         {
           "@type": "Question",
           "name": "Are my images uploaded anywhere?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Compressly is a static client-side app — there is no server upload step. You can verify by opening DevTools → Network tab while compressing." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Compressly is a static client-side app — there is no server upload step. Open DevTools → Network tab while compressing to verify nothing is sent." }
         },
         {
           "@type": "Question",
@@ -153,6 +153,16 @@
           "@type": "Question",
           "name": "What is JXL and why does Pro require it?",
           "acceptedAnswer": { "@type": "Answer", "text": "JPEG XL (JXL) is a next-generation image format designed for high-fidelity compression and lossless recompression of existing JPEGs. Its encoder bundle is large (~3 MB of WASM), so we gate it behind Pro to keep the free experience fast. Lossless mode itself is free — it works with PNG, WebP and AVIF." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Pro work across browsers and devices?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your license unlocks Compressly on every browser and device you use it on — no seat limit. Just paste the key into \"Have a key?\" at the top." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's your refund policy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Lemon Squeezy handles billing with a 14-day money-back guarantee, no questions asked. Just reply to your purchase receipt." }
         }
       ]
     }
@@ -188,22 +198,23 @@
         <h2 style="font-size:24px;margin:32px 0 10px">Converters</h2>
         <ul style="color:#d3d7e0;padding-left:22px;margin:0 0 24px">
           <li><a href="/png-to-webp" style="color:#c0ff85">Convert PNG to WebP</a> — keep transparency, cut file size 25–80%.</li>
-          <li><a href="/jpg-to-webp" style="color:#c0ff85">Convert JPG to WebP</a> — same photo quality, typically 25–35% lighter.</li>
+          <li><a href="/jpg-to-webp" style="color:#c0ff85">Convert JPG to WebP</a> — same photo quality, 13% lighter than MozJPEG in our <a href="/benchmark" style="color:#c0ff85">benchmark</a>.</li>
           <li><a href="/webp-to-png" style="color:#c0ff85">Convert WebP to PNG</a> — a universal, lossless, editable file.</li>
           <li><a href="/webp-to-jpg" style="color:#c0ff85">Convert WebP to JPG</a> — maximum compatibility for email and uploads.</li>
-          <li><a href="/compress-webp" style="color:#c0ff85">Compress WebP</a>
-            <a href="/png-to-avif" style="color:#c0ff85;text-decoration:none">PNG to AVIF</a>
-            <a href="/jpg-to-avif" style="color:#c0ff85;text-decoration:none">JPG to AVIF</a>
-            <a href="/avif-to-jpg" style="color:#c0ff85;text-decoration:none">AVIF to JPG</a>
-            <a href="/avif-to-png" style="color:#c0ff85;text-decoration:none">AVIF to PNG</a>
-            <a href="/avif-converter" style="color:#c0ff85;text-decoration:none">AVIF converter</a> — make existing WebP files smaller without changing format.</li>
+          <li><a href="/compress-webp" style="color:#c0ff85">Compress WebP</a> — make existing WebP files smaller without changing format.</li>
+          <li><a href="/png-to-avif" style="color:#c0ff85">Convert PNG to AVIF</a> — keeps transparency; 88–95% smaller on photos in our benchmark.</li>
+          <li><a href="/jpg-to-avif" style="color:#c0ff85">Convert JPG to AVIF</a> — same visual quality, 19% smaller than MozJPEG on photos.</li>
+          <li><a href="/avif-to-jpg" style="color:#c0ff85">Convert AVIF to JPG</a> — for apps and sites that still reject AVIF.</li>
+          <li><a href="/avif-to-png" style="color:#c0ff85">Convert AVIF to PNG</a> — lossless and editable, transparency intact.</li>
+          <li><a href="/avif-converter" style="color:#c0ff85">AVIF converter</a> — to AVIF or back from it, in one batch.</li>
+          <li><a href="/benchmark" style="color:#c0ff85">Compression benchmark</a> — measured sizes and quality for every format, with the method and data.</li>
         </ul>
 
         <h2 style="font-size:24px;margin:32px 0 10px">Pricing</h2>
         <p style="color:#d3d7e0;margin:0 0 24px">
-          <strong>Free</strong> — up to 20 images per batch, 25 MB per file, JPG/PNG/WebP/AVIF, quality slider, resize and ZIP download.
+          <strong>Free</strong> — up to 20 images per batch, 25 MB per file, JPG/PNG/WebP/AVIF, quality slider, lossless mode, resize and ZIP download.
           <strong>Pro — $39 one-time</strong> (lifetime, no subscription) — unlimited batch size, 200 MB per file, JXL encoding and decoding,
-          lossless mode and EXIF preservation.
+          and EXIF preservation.
         </p>
 
         <h2 style="font-size:24px;margin:32px 0 10px">Frequently asked</h2>

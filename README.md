@@ -100,6 +100,10 @@ Plan to ship 1 SEO landing per pair (`/png-to-avif`, `/compress-webp`, etc.), ea
 
 See `/money-seo` for the full keyword research + content plan after the v1 ships.
 
+## Benchmark
+
+`npm run benchmark` measures the site's own encoders (at the app's default settings) on the fixed image set in `bench/corpus/`, scores every output with SSIM, and also finds the smallest WebP/AVIF that matches a quality-75 MozJPEG. It writes `public/benchmark.json` and regenerates the tables in `pages/benchmark.html`, so the published tables always match the data. The four NASA photos are fetched on first run and verified against pixel hashes in `bench/corpus/manifest.json`. If you change encoder settings in `src/lib/worker.ts`, mirror them in `scripts/benchmark.mjs` and re-run; figures quoted in page prose and `llms.txt` then need a manual check.
+
 ## Project structure
 
 ```

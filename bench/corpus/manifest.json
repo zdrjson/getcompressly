@@ -1,0 +1,71 @@
+{
+  "about": "Fixed image set for scripts/benchmark.mjs. Photos are fetched from NASA and normalised on first run (decoded with MozJPEG, longest side resized to 1600 px with jSquash lanczos3); the three rendered images are committed. Every image is checked against the SHA-256 of its decoded RGBA pixels, so a run either uses exactly these inputs or stops.",
+  "images": [
+    {
+      "file": "photo-astronaut.png",
+      "kind": "photo",
+      "description": "Astronaut on the lunar surface — fine texture, bright highlights",
+      "source": "https://images-assets.nasa.gov/image/as11-40-5903/as11-40-5903~large.jpg",
+      "credit": "NASA, Apollo 11 (AS11-40-5903)",
+      "license": "Public domain (NASA media usage guidelines)",
+      "resizeLongest": 1600,
+      "pixelsSha256": "ec97c9246b89926c12852e5b1da1140674295a8fec468e395f52722de9706152"
+    },
+    {
+      "file": "photo-earth.png",
+      "kind": "photo",
+      "description": "Whole Earth on black — smooth gradients, large flat area",
+      "source": "https://images-assets.nasa.gov/image/as17-148-22727/as17-148-22727~large.jpg",
+      "credit": "NASA, Apollo 17 (AS17-148-22727)",
+      "license": "Public domain (NASA media usage guidelines)",
+      "resizeLongest": 1600,
+      "pixelsSha256": "b430289994fe18b4903bad2764bdbcabd5aa1b62b5a9a5cd2671aa4f4da4337c"
+    },
+    {
+      "file": "photo-dune-flowers.png",
+      "kind": "photo",
+      "description": "Flowers across sand — dense high-frequency detail, the hardest case",
+      "source": "https://images-assets.nasa.gov/image/KSC-03pd2389/KSC-03pd2389~large.jpg",
+      "credit": "NASA/KSC (KSC-03PD-2389)",
+      "license": "Public domain (NASA media usage guidelines)",
+      "resizeLongest": 1600,
+      "pixelsSha256": "3b9df395c34c6e097fae6202ff1c95b682d825af6b70e57c805a1dd285a0b310"
+    },
+    {
+      "file": "photo-owl-nest.png",
+      "kind": "photo",
+      "description": "Owls in a nest — feather detail against soft background",
+      "source": "https://images-assets.nasa.gov/image/KSC-2014-1791/KSC-2014-1791~large.jpg",
+      "credit": "NASA/KSC, Dimitri Gerondidakis (KSC-2014-1791)",
+      "license": "Public domain (NASA media usage guidelines)",
+      "resizeLongest": 1600,
+      "pixelsSha256": "e9ae2ee5ba60b8e8099906627c94ce0c4e98b0d4389082eb9c9a3450314b7fc6"
+    },
+    {
+      "file": "screenshot-ui.png",
+      "kind": "screenshot",
+      "description": "1440×900 screenshot of getcompressly.com/png-to-avif — text, flat UI, one accent colour",
+      "credit": "Compressly (own work)",
+      "license": "Same as this repository",
+      "pixelsSha256": "6c994d2bfc809509be1e7505f875579e83a49db409b144e323742ce13bd748ea"
+    },
+    {
+      "file": "product-cutout-alpha.png",
+      "kind": "graphic-alpha",
+      "description": "Product-style cutout on a transparent background, rendered from SVG at 1200 px",
+      "source": "https://commons.wikimedia.org/wiki/File:Coffee_cup_icon.svg",
+      "credit": "lual, via Openclipart / Wikimedia Commons",
+      "license": "CC0 / public domain",
+      "pixelsSha256": "1a925983a90cd279a6417b09ec7af5a3e533d4173a3d39a9bf8375919ebc700e"
+    },
+    {
+      "file": "flat-graphic.png",
+      "kind": "graphic",
+      "description": "Flat-colour graphic with hard edges (flag of Brazil) rendered from SVG at 1400 px",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain (PD-BrazilGov)",
+      "pixelsSha256": "f4ce4a16185ecffb43412ca47865d8b7a20d8cd559432cfadaaed23b1b10a259"
+    }
+  ]
+}

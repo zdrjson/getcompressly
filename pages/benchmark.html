@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Image Compression Benchmark: JPEG vs WebP vs AVIF vs PNG | Compressly</title>
+<meta name="description" content="Measured, not quoted: file size and SSIM for MozJPEG, WebP, AVIF and OxiPNG on seven public-domain images, including sizes at matched visual quality." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="canonical" href="https://getcompressly.com/benchmark" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="/landing.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image Compression Benchmark: JPEG vs WebP vs AVIF vs PNG">
+<meta property="og:description" content="File size and SSIM for MozJPEG, WebP, AVIF and OxiPNG on seven public-domain images, including sizes at matched visual quality.">
+<meta property="og:url" content="https://getcompressly.com/benchmark">
+<meta property="og:image" content="https://getcompressly.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Compressly", "item": "https://getcompressly.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Benchmark", "item": "https://getcompressly.com/benchmark" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Compressly image compression benchmark",
+  "description": "Output file size and SSIM for MozJPEG, WebP (lossy and lossless), AVIF and OxiPNG on seven public-domain test images — four photographs, a UI screenshot, a transparent product cutout and a flat graphic — using the same WebAssembly encoders and default settings (quality 75) that Compressly runs in the browser. Includes the smallest WebP and AVIF that match the SSIM of a quality-75 MozJPEG.",
+  "url": "https://getcompressly.com/benchmark",
+  "creator": { "@type": "Organization", "@id": "https://getcompressly.com/#organization", "name": "Compressly", "url": "https://getcompressly.com/" },
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "isAccessibleForFree": true,
+  "keywords": ["image compression", "AVIF", "WebP", "JPEG", "MozJPEG", "PNG", "OxiPNG", "SSIM"],
+  "measurementTechnique": "SSIM on BT.601 luma after compositing over white, 8×8 windows at stride 4; binary search over encoder quality to find the smallest file at a target SSIM",
+  "variableMeasured": ["Output file size (bytes)", "Size reduction versus unoptimised PNG", "SSIM versus source image"],
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/json",
+    "contentUrl": "https://getcompressly.com/benchmark.json"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a class="logo" href="/">
+      <span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06070a" stroke-width="2.5" stroke-linecap="round"><path d="M20 12H4m8-8v16"/></svg></span>
+      Compressly
+    </a>
+    <a class="nav-cta" href="/#tool">Open the tool</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="crumb"><a href="/">Home</a> › Benchmark</div>
+    <div class="badge">MEASURED · 7 IMAGES · RAW DATA INCLUDED</div>
+    <h1>Image compression benchmark: JPEG vs WebP vs AVIF vs PNG</h1>
+    <p class="sub">How much smaller does each format actually make an image, and what does it cost in quality? We ran the encoders this site uses on a fixed set of public-domain images and measured both.</p>
+    <p class="byline">By the Compressly team · Published and updated <time datetime="2026-09-24">24 September 2026</time></p>
+  </section>
+
+  <article>
+    <h2 id="findings">Key findings</h2>
+    <p><strong>At the same visual quality, AVIF photos were a median 19% smaller than MozJPEG and WebP photos 13% smaller — well below the 25–50% figures usually quoted, largely because those compare against a standard JPEG encoder rather than an optimised one.</strong> On screenshots and flat graphics the gap is far wider.</p>
+    <ul class="findings">
+      <li><strong>Photos, matched quality:</strong> AVIF was 17–29% smaller than a quality-75 MozJPEG of equal SSIM; WebP was 5–20% smaller.</li>
+      <li><strong>Screenshot and flat graphic, matched quality:</strong> WebP was 55–59% smaller than JPEG and AVIF 59–81% smaller. Sharp edges and flat colour are where JPEG is weakest.</li>
+      <li><strong>The same quality number is not the same quality.</strong> At quality 75, AVIF files were larger than WebP on all four photos — but they also scored higher SSIM (median 0.994 against 0.985 across all seven images). Comparing formats at equal slider values says little.</li>
+      <li><strong>Lossless PNG optimisation is worth doing:</strong> OxiPNG cut unoptimised PNGs by a median 51% (range 31–74%) without changing a pixel, and lossless WebP came out a further 16–55% smaller than the OxiPNG file (median 24%).</li>
+      <li><strong>Any lossy format at quality 75 removed 88–97% of an unoptimised PNG photo's size.</strong> If your photographs are stored as PNG, the format change matters far more than which modern format you pick.</li>
+    </ul>
+
+    <h2 id="sizes">Results at default settings (quality 75)</h2>
+    <p>Each cell shows the output size, then the saving against an unoptimised PNG of the same image, and the SSIM score against the original (1.000 is identical). These are Compressly's default settings: quality 75, effort 4.</p>
+<!-- bench:sizes -->
+<div class="table-scroll"><table class="cmp data">
+<thead><tr><th>Image</th><th>PNG, unoptimised</th><th>OxiPNG</th><th>WebP lossless</th><th>MozJPEG q75</th><th>WebP q75</th><th>AVIF q75</th></tr></thead><tbody>
+<tr><td>Astronaut on the lunar surface<span class="dim">1600×1562</span></td><td>4,994 KB</td><td>2,885 KB<span class="dim">−42%</span><span class="dim">lossless</span></td><td>2,211 KB<span class="dim">−56%</span><span class="dim">lossless</span></td><td>282 KB<span class="dim">−94%</span><span class="dim">SSIM 0.974</span></td><td>230 KB<span class="dim">−95%</span><span class="dim">SSIM 0.969</span></td><td>315 KB<span class="dim">−94%</span><span class="dim">SSIM 0.984</span></td></tr>
+<tr><td>Whole Earth on black<span class="dim">1600×1600</span></td><td>2,553 KB</td><td>1,743 KB<span class="dim">−32%</span><span class="dim">lossless</span></td><td>1,227 KB<span class="dim">−52%</span><span class="dim">lossless</span></td><td>192 KB<span class="dim">−92%</span><span class="dim">SSIM 0.986</span></td><td>167 KB<span class="dim">−93%</span><span class="dim">SSIM 0.985</span></td><td>236 KB<span class="dim">−91%</span><span class="dim">SSIM 0.994</span></td></tr>
+<tr><td>Flowers across sand<span class="dim">1600×1043</span></td><td>4,702 KB</td><td>3,265 KB<span class="dim">−31%</span><span class="dim">lossless</span></td><td>2,485 KB<span class="dim">−47%</span><span class="dim">lossless</span></td><td>368 KB<span class="dim">−92%</span><span class="dim">SSIM 0.929</span></td><td>411 KB<span class="dim">−91%</span><span class="dim">SSIM 0.961</span></td><td>567 KB<span class="dim">−88%</span><span class="dim">SSIM 0.981</span></td></tr>
+<tr><td>Owls in a nest<span class="dim">1600×1067</span></td><td>2,418 KB</td><td>1,159 KB<span class="dim">−52%</span><span class="dim">lossless</span></td><td>885 KB<span class="dim">−63%</span><span class="dim">lossless</span></td><td>108 KB<span class="dim">−96%</span><span class="dim">SSIM 0.979</span></td><td>80 KB<span class="dim">−97%</span><span class="dim">SSIM 0.975</span></td><td>121 KB<span class="dim">−95%</span><span class="dim">SSIM 0.989</span></td></tr>
+<tr><td>1440×900 screenshot of getcompressly.com/png-to-avif<span class="dim">1440×900</span></td><td>210 KB</td><td>63 KB<span class="dim">−70%</span><span class="dim">lossless</span></td><td>42 KB<span class="dim">−80%</span><span class="dim">lossless</span></td><td>47 KB<span class="dim">−78%</span><span class="dim">SSIM 0.991</span></td><td>33 KB<span class="dim">−84%</span><span class="dim">SSIM 0.996</span></td><td>37 KB<span class="dim">−83%</span><span class="dim">SSIM 0.999</span></td></tr>
+<tr><td>Product-style cutout on a transparent background, rendered from SVG at 1200 px<span class="dim">1200×1149</span></td><td>688 KB</td><td>178 KB<span class="dim">−74%</span><span class="dim">lossless</span></td><td>149 KB<span class="dim">−78%</span><span class="dim">lossless</span></td><td>31 KB<span class="dim">−95%</span><span class="dim">SSIM 0.993</span></td><td>55 KB<span class="dim">−92%</span><span class="dim">SSIM 0.996</span></td><td>32 KB<span class="dim">−95%</span><span class="dim">SSIM 0.997</span></td></tr>
+<tr><td>Flat-colour graphic with hard edges (flag of Brazil) rendered from SVG at 1400 px<span class="dim">1400×980</span></td><td>94 KB</td><td>46 KB<span class="dim">−51%</span><span class="dim">lossless</span></td><td>21 KB<span class="dim">−78%</span><span class="dim">lossless</span></td><td>32 KB<span class="dim">−66%</span><span class="dim">SSIM 0.996</span></td><td>22 KB<span class="dim">−77%</span><span class="dim">SSIM 0.999</span></td><td>15 KB<span class="dim">−84%</span><span class="dim">SSIM 0.999</span></td></tr>
+</tbody></table></div>
+<!-- /bench:sizes -->
+    <p>The transparent product cutout loses its alpha channel as a JPEG; Compressly flattens it onto white first, which is how it is scored here.</p>
+
+    <h2 id="matched">File size at matched visual quality</h2>
+    <p><strong>This is the fair comparison.</strong> For each opaque image we took the SSIM of a quality-75 MozJPEG as the bar, then searched for the lowest WebP and AVIF quality setting that reaches it. The quality value that gets there differs by format and by image, which is exactly why equal slider values mislead.</p>
+<!-- bench:matched -->
+<div class="table-scroll"><table class="cmp data">
+<thead><tr><th>Image</th><th>MozJPEG q75</th><th>WebP at same SSIM</th><th>AVIF at same SSIM</th></tr></thead><tbody>
+<tr><td>Astronaut on the lunar surface</td><td>282 KB<span class="dim">SSIM 0.974</span></td><td>269 KB<span class="dim">5% smaller</span><span class="dim">at quality 79</span></td><td>221 KB<span class="dim">21% smaller</span><span class="dim">at quality 60</span></td></tr>
+<tr><td>Whole Earth on black</td><td>192 KB<span class="dim">SSIM 0.986</span></td><td>174 KB<span class="dim">9% smaller</span><span class="dim">at quality 76</span></td><td>160 KB<span class="dim">17% smaller</span><span class="dim">at quality 58</span></td></tr>
+<tr><td>Flowers across sand</td><td>368 KB<span class="dim">SSIM 0.929</span></td><td>296 KB<span class="dim">20% smaller</span><span class="dim">at quality 44</span></td><td>305 KB<span class="dim">17% smaller</span><span class="dim">at quality 47</span></td></tr>
+<tr><td>Owls in a nest</td><td>108 KB<span class="dim">SSIM 0.979</span></td><td>91 KB<span class="dim">16% smaller</span><span class="dim">at quality 78</span></td><td>77 KB<span class="dim">29% smaller</span><span class="dim">at quality 58</span></td></tr>
+<tr><td>1440×900 screenshot of getcompressly.com/png-to-avif</td><td>47 KB<span class="dim">SSIM 0.991</span></td><td>21 KB<span class="dim">56% smaller</span><span class="dim">at quality 29</span></td><td>19 KB<span class="dim">59% smaller</span><span class="dim">at quality 44</span></td></tr>
+<tr><td>Flat-colour graphic with hard edges (flag of Brazil) rendered from SVG at 1400 px</td><td>32 KB<span class="dim">SSIM 0.996</span></td><td>13 KB<span class="dim">59% smaller</span><span class="dim">at quality 19</span></td><td>6 KB<span class="dim">81% smaller</span><span class="dim">at quality 35</span></td></tr>
+</tbody></table></div>
+<!-- /bench:matched -->
+    <div class="callout"><strong>Why these numbers are lower than you may have read.</strong> Google's <a href="https://developers.google.com/speed/webp/docs/webp_study" rel="noopener">WebP compression study</a> reported WebP 25–34% smaller than JPEG at equal SSIM, measured against a standard JPEG encoder. MozJPEG is itself an improved JPEG encoder that produces smaller files at the same quality, so part of that headroom is already gone before WebP or AVIF are involved. Against an optimised JPEG, the honest photo figure is closer to 10–20%.</div>
+
+    <h2 id="images">The test images</h2>
+    <p>Seven images chosen to cover the cases people actually compress, all public domain or our own work:</p>
+    <ul>
+      <li><strong>Four photographs</strong> from NASA's image library: an Apollo 11 astronaut on the Moon (AS11-40-5903), the Apollo 17 whole-Earth photograph (AS17-148-22727), flowers across Kennedy Space Center dunes (KSC-03PD-2389, the hardest image here because of its dense detail), and an owl nest (KSC-2014-1791). Each was resized to 1,600 px on the long side.</li>
+      <li><strong>A UI screenshot</strong>, 1440×900, of this site's PNG to AVIF page — text, flat panels and one accent colour.</li>
+      <li><strong>A transparent product cutout</strong>, a coffee cup rendered from a CC0 SVG at 1,200 px, standing in for the product shots marketplaces ask for.</li>
+      <li><strong>A flat graphic</strong>, the flag of Brazil rendered from its public-domain SVG at 1,400 px: hard edges and a handful of colours.</li>
+    </ul>
+
+    <h2 id="method">Method</h2>
+    <ul>
+      <li><strong>Encoders:</strong> the jSquash WebAssembly builds of MozJPEG, libwebp, libavif and OxiPNG that Compressly runs in your browser, at the settings in the app's defaults. Exact versions are recorded in the raw data.</li>
+      <li><strong>Baseline:</strong> each image written as a plain PNG with no optimisation — roughly what an image editor or screenshot tool saves.</li>
+      <li><strong>Quality metric:</strong> SSIM (structural similarity) on luminance, after compositing any transparency over white, using 8×8 windows at a stride of 4. Every output is decoded again and compared with the source.</li>
+      <li><strong>Matched quality:</strong> a binary search over each encoder's quality setting for the smallest file whose SSIM is at least the JPEG's.</li>
+      <li><strong>Integrity:</strong> each source image is checked against a SHA-256 hash of its decoded pixels before it is measured, so every run uses identical inputs.</li>
+    </ul>
+    <p>The raw results, including codec versions and per-image scores, are available as <a href="/benchmark.json">benchmark.json</a>.</p>
+
+    <h2 id="limits">Limitations</h2>
+    <ul>
+      <li>Seven images is a small sample. It shows the shape of the trade-offs, not a universal percentage — your own images will vary.</li>
+      <li>SSIM on luminance does not see colour errors, and no single metric captures what a person notices. AVIF's colour handling is not credited here.</li>
+      <li>The photographs were JPEGs when NASA published them. Downscaling to 1,600 px removes most of the original compression artefacts, but not every trace.</li>
+      <li>Measurements were taken with the single-threaded builds under Node.js. The browser's multi-threaded AVIF encoder is the same libavif release, but threading can change the output slightly.</li>
+      <li>Encoding time is not reported: it depends on the machine, and a number from ours would not predict yours.</li>
+    </ul>
+
+    <h2>Try it on your own images</h2>
+    <p>The numbers above come from the same encoders the converter runs, so you can check them against your own files — nothing is uploaded.</p>
+    <div class="related">
+      <a href="/png-to-avif">PNG to AVIF <span>88–95% smaller on photos</span></a>
+      <a href="/jpg-to-avif">JPG to AVIF <span>Same quality, smaller files</span></a>
+      <a href="/png-to-webp">PNG to WebP <span>Lossless or lossy, keeps alpha</span></a>
+      <a href="/jpg-to-webp">JPG to WebP <span>Broadest modern support</span></a>
+    </div>
+
+    <div class="cta-block">
+      <h2>Compress your own images</h2>
+      <p>Batch, in your browser, with the settings measured here as the defaults.</p>
+      <a class="btn-primary" href="/#tool">Open the compressor →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/">Compressly home</a>
+    <a href="/png-to-avif">PNG to AVIF</a>
+    <a href="/jpg-to-avif">JPG to AVIF</a>
+    <a href="/avif-converter">AVIF converter</a>
+    <a href="/privacy">Privacy</a>
+    <div class="copy">© 2026 Compressly. Compresses images — not your privacy.</div>
+  </div>
+</footer>
+</body>
+</html>

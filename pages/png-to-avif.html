@@ -69,7 +69,7 @@
       "name": "How much smaller is AVIF than PNG?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For photographs and detailed images, AVIF is commonly 50–90% smaller than the same picture stored as PNG. The exact saving depends on the image: flat graphics with few colours compress well as PNG already, so the gap is smaller there."
+        "text": "It depends on what the PNG contains and whether it was already optimised. In our benchmark, AVIF at the default quality 75 was 88–95% smaller than an unoptimised PNG on photographs, and 83–95% smaller on a screenshot, a flat graphic and a transparent cutout. Against a PNG already squeezed with OxiPNG, the saving was 41–90%."
       }
     },
     {
@@ -130,6 +130,7 @@
       <a class="btn-ghost" href="#how">How it works</a>
     </div>
     <div class="trust">Runs locally via WebAssembly · Batch + ZIP export · Free forever</div>
+    <p class="byline">Updated <time datetime="2026-09-24">24 September 2026</time> · Figures measured in <a href="/benchmark">our compression benchmark</a></p>
   </section>
 </main>
 
@@ -177,7 +178,7 @@
 
     <div class="faq">
       <h2>Questions</h2>
-      <details><summary>How much smaller is AVIF than PNG?</summary><p>For photographs and detailed images, AVIF is commonly 50–90% smaller than the same picture stored as PNG. The exact saving depends on the image: flat graphics with few colours compress well as PNG already, so the gap is smaller there.</p></details>
+      <details><summary>How much smaller is AVIF than PNG?</summary><p>It depends on what the PNG contains and whether it was already optimised. In our benchmark, AVIF at the default quality 75 was 88–95% smaller than an unoptimised PNG on photographs, and 83–95% smaller on a screenshot, a flat graphic and a transparent cutout. Against a PNG already squeezed with OxiPNG, the saving was 41–90%.</p></details>
       <details><summary>Does PNG to AVIF keep transparency?</summary><p>Yes. AVIF supports a full alpha channel, so a transparent PNG stays transparent after conversion. Nothing is flattened onto a solid background.</p></details>
       <details><summary>Do all browsers support AVIF?</summary><p>Chrome, Edge, Firefox, Safari and Opera all decode AVIF in their current versions. For very old browsers, serve AVIF inside a picture element with a PNG or WebP fallback.</p></details>
       <details><summary>Is anything uploaded to a server?</summary><p>No. The AVIF encoder runs inside your browser as WebAssembly, so your PNG files never leave your device. Open DevTools and watch the Network tab while converting to confirm it.</p></details>
