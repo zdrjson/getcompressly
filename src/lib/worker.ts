@@ -53,9 +53,31 @@ function effortToTrellisLoops(effort: number): number {
   return 3;
 }
 
+// JPEG has no alpha channel and MozJPEG simply ignores it, so a transparent
+// pixel keeps whatever RGB it happens to carry — usually black. Composite onto
+// white first, which is what people expect a cut-out product shot to become.
+function flattenOnWhite(img: ImageData): ImageData {
+  const src = img.data;
+  let opaque = true;
+  for (let i = 3; i < src.length; i += 4) {
+    if (src[i] !== 255) { opaque = false; break; }
+  }
+  if (opaque) return img;
+  const out = new Uint8ClampedArray(src.length);
+  for (let i = 0; i < src.length; i += 4) {
+    const a = src[i + 3] / 255;
+    out[i] = src[i] * a + 255 * (1 - a);
+    out[i + 1] = src[i + 1] * a + 255 * (1 - a);
+    out[i + 2] = src[i + 2] * a + 255 * (1 - a);
+    out[i + 3] = 255;
+  }
+  return new ImageData(out, img.width, img.height);
+}
+
 async function encode(img: ImageData, fmt: Format, quality: number, lossless: boolean, effort: number): Promise<ArrayBuffer> {
   switch (fmt) {
     case 'jpeg': {
+      img = flattenOnWhite(img);
       const m = await import('@jsquash/jpeg');
       // jSquash already defaults to progressive + optimize_coding, so those are
       // not ours to switch on. Trellis quantisation is the remaining knob, and
