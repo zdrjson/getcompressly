@@ -17,7 +17,7 @@ Replica of [CompressEasy](https://compresseasy.com/) built on [jSquash](https://
 ## Run locally
 
 ```bash
-cp .env.example .env             # then paste your LS checkout URL
+cp .env.example .env             # then paste your LS checkout URL (build fails without it)
 npm install
 npm run dev                       # http://localhost:5173
 ```
