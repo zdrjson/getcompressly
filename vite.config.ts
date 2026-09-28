@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'node:path';
 import { existsSync, readdirSync, renameSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -26,8 +26,38 @@ function flattenPages() {
   };
 }
 
+function isHttpsUrl(s: string) {
+  try {
+    return new URL(s).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+// A production build without a real Lemon Squeezy checkout URL ships a dead
+// "Get Pro" button, so refuse to build. `vite dev` is unaffected.
+function requireCheckoutUrl() {
+  return {
+    name: 'require-checkout-url',
+    apply: 'build' as const,
+    config(_: unknown, { mode }: { mode: string }) {
+      const url = loadEnv(mode, root, 'VITE_').VITE_LS_CHECKOUT_URL?.trim();
+      let problem = '';
+      if (!url) problem = 'is not set';
+      else if (/YOUR-STORE|REPLACE_PRODUCT_ID/.test(url)) problem = 'still holds the .env.example placeholder';
+      else if (!isHttpsUrl(url)) problem = `is not an https URL: ${url}`;
+      if (problem) {
+        throw new Error(
+          `VITE_LS_CHECKOUT_URL ${problem}. Set it in .env (local) or the ` +
+            'Cloudflare Pages build environment to your Lemon Squeezy buy link.',
+        );
+      }
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), flattenPages()],
+  plugins: [react(), tailwindcss(), flattenPages(), requireCheckoutUrl()],
   server: {
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',

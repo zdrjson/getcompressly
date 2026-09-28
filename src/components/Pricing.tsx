@@ -1,8 +1,8 @@
 interface Props { isPro: boolean; onOpenLicense: () => void }
 
-// Replace with your real Lemon Squeezy store URL after creating the product.
+// Required at build time; vite.config.ts fails the build when it is missing.
 // Recommended: enable LS Overlay Checkout for inline UX.
-const LS_CHECKOUT_URL = (import.meta.env.VITE_LS_CHECKOUT_URL as string) || 'https://YOUR-STORE.lemonsqueezy.com/buy/REPLACE_PRODUCT_ID';
+const LS_CHECKOUT_URL = import.meta.env.VITE_LS_CHECKOUT_URL as string | undefined;
 
 const FREE = [
   'Up to 20 files per batch',
