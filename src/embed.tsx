@@ -34,7 +34,7 @@ function EmbeddedTool({ initialFormat }: { initialFormat?: CompressSettings['for
         initialFormat={initialFormat}
         onUpgrade={() => { window.location.href = '/#pricing'; }}
       />
-      <p className="mt-4 text-center text-xs text-zinc-500">
+      <p className="mt-4 text-center text-xs text-bone-500">
         Already bought Pro?{' '}
         <button onClick={() => setLicenseOpen(true)} className="py-2 font-semibold text-accent-400 hover:underline">
           Enter your license key

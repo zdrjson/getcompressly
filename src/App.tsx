@@ -36,11 +36,17 @@ export default function App() {
   }, [initialFormat]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="grain flex min-h-dvh flex-col">
       <Header isPro={!!license} onOpenLicense={() => setLicenseOpen(true)} />
       <main className="flex-1">
         <Hero />
-        <section id="tool" className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20">
+        <section id="tool" aria-labelledby="tool-title" className="mx-auto w-full max-w-7xl px-4 pb-28 pt-20 sm:px-8 sm:pt-24">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <h2 id="tool-title" className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-medium leading-none tracking-[-0.035em]">
+              The compressor
+            </h2>
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-bone-500">Runs in this tab · nothing uploaded</p>
+          </div>
           <Compressor license={license} initialFormat={initialFormat} onUpgrade={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} />
         </section>
         <Features />

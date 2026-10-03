@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import Reveal from './Reveal';
 
 const QA = [
   {
@@ -36,33 +36,35 @@ const QA = [
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="border-t border-ink-700 bg-ink-900/50">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 py-20">
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center">Frequently asked</h2>
-        <div className="mt-10 space-y-2">
+    <section id="faq" className="border-t border-ink-700/80">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-28 pt-24 sm:px-8 sm:pt-32 lg:grid-cols-12">
+        <Reveal className="lg:col-span-4">
+          <div className="lg:sticky lg:top-28">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-bone-600">FAQ</p>
+            <h2 className="mt-5 text-[clamp(2.25rem,4.6vw,4rem)] font-medium leading-[0.98] tracking-[-0.04em]">
+              Frequently <span className="font-serif font-normal italic text-bone-300">asked</span>
+            </h2>
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-bone-500">
+              Something else? <a href="mailto:hello@getcompressly.com" className="text-bone-100 underline decoration-ink-500 underline-offset-4 transition hover:decoration-accent-500">hello@getcompressly.com</a>
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Every answer is visible: no accordion to hunt through, and crawlers see it all. */}
+        <dl className="divide-y divide-ink-700 border-y border-ink-700 lg:col-span-8">
           {QA.map((item, i) => (
-            <div key={item.q} className="rounded-xl border border-ink-700 bg-ink-800/40">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-center justify-between gap-4 p-4 text-left"
-              >
-                <span className="font-medium text-zinc-100">{item.q}</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-zinc-500 transition ${open === i ? 'rotate-180' : ''}`}>
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-              {/* Always in the DOM (toggled with `hidden`) so crawlers see every answer, not just the open one. */}
-              <div
-                hidden={open !== i}
-                className="border-t border-ink-700 px-4 pb-4 pt-3 text-sm text-zinc-400 leading-relaxed"
-              >
-                {item.a}
-              </div>
-            </div>
+            <Reveal key={item.q} delay={Math.min(i, 3) * 60} className="group relative py-8 sm:pl-16">
+              <dt className="text-lg font-medium tracking-[-0.02em] text-bone-100">
+                <span aria-hidden className="tabular mb-3 block font-mono text-xs text-bone-600 transition-colors group-hover:text-accent-500 sm:absolute sm:left-0 sm:top-9 sm:mb-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {item.q}
+              </dt>
+              <dd className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-bone-500">{item.a}</dd>
+            </Reveal>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );
