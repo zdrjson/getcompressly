@@ -3,6 +3,7 @@ interface Props { isPro: boolean; onOpenLicense: () => void }
 const NAV = [
   { href: '#tool', label: 'Tool' },
   { href: '#features', label: 'How it works' },
+  { href: '#converters', label: 'Converters' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
 ];

@@ -4,7 +4,9 @@ import type { JobInput, JobResult } from '../types';
 
 // Pool of workers — uses navigator.hardwareConcurrency, capped to 4 to keep
 // peak memory reasonable for laptops while still beating sequential.
-const POOL_SIZE = Math.max(1, Math.min(4, (navigator.hardwareConcurrency ?? 4) - 1));
+// Guarded so the module can be imported while prerendering in Node.
+const cores = typeof navigator !== 'undefined' ? navigator.hardwareConcurrency : undefined;
+const POOL_SIZE = Math.max(1, Math.min(4, (cores ?? 4) - 1));
 
 type WorkerSlot = {
   worker: Worker;

@@ -24,7 +24,7 @@ export default function FileRow({ entry, onRemove, onDownload }: Props) {
       )}
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-ink-700">
         {entry.previewUrl ? (
-          <img src={entry.previewUrl} alt="" className="h-full w-full object-cover" />
+          <img src={entry.previewUrl} alt="" width={56} height={56} className="h-full w-full object-cover" />
         ) : (
           <span className="grid h-full place-items-center font-mono text-[10px] text-bone-500">IMG</span>
         )}

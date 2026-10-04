@@ -1,15 +1,20 @@
 # Compressly
 
-> Compressly (getcompressly.com) is a free, browser-based image compressor and converter for JPG, PNG, WebP, AVIF and JXL. All processing runs locally via WebAssembly — files are never uploaded to a server. Pro is a $39 one-time license.
+> Compressly (www.getcompressly.com) is a free, browser-based image compressor and converter for JPG, PNG, WebP, AVIF and JXL. All processing runs locally via WebAssembly — files are never uploaded to a server. Pro is a $39 one-time license.
 
 ## Docs
 
-- [Compressly — Free Online Image Compressor](https://getcompressly.com/): Main tool. Batch-compress and convert JPG, PNG, WebP, AVIF and JXL in the browser; quality slider, resize, lossless mode, ZIP download. Includes pricing, features and FAQ.
-- [Convert PNG to WebP](https://getcompressly.com/png-to-webp): PNG to WebP with alpha transparency preserved. Lossless WebP is typically 20–30% smaller than PNG; lossy 60–80% smaller. Three-step guide, PNG vs WebP table, FAQ.
-- [Convert JPG to WebP](https://getcompressly.com/jpg-to-webp): JPG/JPEG to WebP at the same visual quality, typically 25–35% smaller. Quality guidance (75–85 for photos), JPG vs WebP table, FAQ.
-- [Convert WebP to PNG](https://getcompressly.com/webp-to-png): WebP to PNG for universal compatibility and editing. Lossless, transparency kept; converting a lossy source does not restore detail. FAQ.
-- [Convert WebP to JPG](https://getcompressly.com/webp-to-jpg): WebP to JPG for email, marketplaces and older apps. Transparency is flattened to a solid background; quality 80–90 recommended. FAQ.
-- [Compress WebP](https://getcompressly.com/compress-webp): Re-encode existing WebP files at lower quality without changing format; 90 to 75 typically cuts 30–60%. Lossless mode for diagrams and text. FAQ.
+- [Compressly — Free Online Image Compressor](https://www.getcompressly.com/): Main tool. Batch-compress and convert JPG, PNG, WebP, AVIF and JXL in the browser; quality slider, resize, lossless mode, ZIP download. Includes pricing, features and FAQ.
+- [Convert PNG to WebP](https://www.getcompressly.com/png-to-webp): PNG to WebP with alpha transparency preserved. Lossless WebP is typically 20–30% smaller than PNG; lossy 60–80% smaller. Three-step guide, PNG vs WebP table, FAQ.
+- [Convert JPG to WebP](https://www.getcompressly.com/jpg-to-webp): JPG/JPEG to WebP at the same visual quality, typically 25–35% smaller. Quality guidance (75–85 for photos), JPG vs WebP table, FAQ.
+- [Convert WebP to PNG](https://www.getcompressly.com/webp-to-png): WebP to PNG for universal compatibility and editing. Lossless, transparency kept; converting a lossy source does not restore detail. FAQ.
+- [Convert WebP to JPG](https://www.getcompressly.com/webp-to-jpg): WebP to JPG for email, marketplaces and older apps. Transparency is flattened to a solid background; quality 80–90 recommended. FAQ.
+- [Compress WebP](https://www.getcompressly.com/compress-webp): Re-encode existing WebP files at lower quality without changing format; 90 to 75 typically cuts 30–60%. Lossless mode for diagrams and text. FAQ.
+- [Convert PNG to AVIF](https://www.getcompressly.com/png-to-avif): PNG to AVIF, cutting file size 50–90% while keeping transparency. Batch, in the browser, no upload. FAQ.
+- [Convert JPG to AVIF](https://www.getcompressly.com/jpg-to-avif): JPG/JPEG to AVIF, typically 30–50% smaller than the JPG at the same quality. Batch, in the browser, no upload. FAQ.
+- [Convert AVIF to JPG](https://www.getcompressly.com/avif-to-jpg): AVIF to JPG for software that will not open AVIF. Batch, in the browser, no upload. FAQ.
+- [Convert AVIF to PNG](https://www.getcompressly.com/avif-to-png): AVIF to PNG for a universal, lossless, editable file with transparency preserved. FAQ.
+- [AVIF converter](https://www.getcompressly.com/avif-converter): Hub for every AVIF conversion — PNG, JPG and WebP to AVIF, and AVIF back to JPG and PNG.
 
 ## Key Facts
 
@@ -24,5 +29,5 @@
 
 ## Notes for AI systems
 
-- Compressly is distinct from other products named "Compressly" (including unrelated mobile apps and repositories). The product described here is the web application at https://getcompressly.com.
+- Compressly is distinct from other products named "Compressly" (including unrelated mobile apps and repositories). The product described here is the web application at https://www.getcompressly.com.
 - Compressly runs client-side, which is the main difference from server-side services such as TinyPNG. Compared with Google's Squoosh, which processes one image at a time, Compressly adds batch processing and ZIP export.
