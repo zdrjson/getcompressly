@@ -49,6 +49,16 @@ export default function Compressor({ license, onUpgrade, initialFormat }: Props)
   const lim = limits(license);
   const isPro = !!license;
 
+  // Known only in the browser; rendered after mount so the prerendered HTML
+  // and the first client render match.
+  const [workers, setWorkers] = useState<number | null>(null);
+  useEffect(() => { setWorkers(poolSize()); }, []);
+
+  // A ?to= deep link is read after hydration, so apply it when it arrives.
+  useEffect(() => {
+    if (initialFormat) setSettings((s) => ({ ...s, format: initialFormat }));
+  }, [initialFormat]);
+
   const totalIn = useMemo(() => entries.reduce((a, e) => a + e.file.size, 0), [entries]);
   const totalOut = useMemo(() => entries.reduce((a, e) => a + (e.result?.outSize ?? 0), 0), [entries]);
   const doneCount = entries.filter((e) => e.status === 'done').length;
@@ -190,7 +200,7 @@ export default function Compressor({ license, onUpgrade, initialFormat }: Props)
             {isDragActive ? 'Let go — they stay on this device' : <>Drop images here <span className="font-serif text-[1.1em] font-normal italic text-bone-300">or</span> click to select</>}
           </p>
           <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-bone-500">
-            JPG · PNG · WebP · AVIF · JXL — processed locally via {poolSize()} worker{poolSize() > 1 ? 's' : ''}
+            JPG · PNG · WebP · AVIF · JXL — processed locally{workers ? ` via ${workers} worker${workers > 1 ? 's' : ''}` : ''}
           </p>
         </div>
 

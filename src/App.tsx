@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Compressor from './components/Compressor';
 import Features from './components/Features';
+import AllConverters from './components/AllConverters';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -24,9 +25,11 @@ function readInitialFormat(): CompressSettings['format'] | undefined {
 export default function App() {
   const [license, setLicense] = useState<LicenseState | null>(null);
   const [licenseOpen, setLicenseOpen] = useState(false);
-  const [initialFormat] = useState(readInitialFormat);
+  // Read after mount: the page is prerendered, so the first render must not
+  // depend on the URL.
+  const [initialFormat, setInitialFormat] = useState<CompressSettings['format'] | undefined>();
 
-  useEffect(() => { setLicense(loadLicense()); }, []);
+  useEffect(() => { setLicense(loadLicense()); setInitialFormat(readInitialFormat()); }, []);
 
   // Deep-linked from a landing page — bring the tool into view.
   useEffect(() => {
@@ -50,6 +53,7 @@ export default function App() {
           <Compressor license={license} initialFormat={initialFormat} onUpgrade={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} />
         </section>
         <Features />
+        <AllConverters />
         <Pricing isPro={!!license} onOpenLicense={() => setLicenseOpen(true)} />
         <FAQ />
       </main>

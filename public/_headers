@@ -19,3 +19,11 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# The *.pages.dev hostnames serve the same build as www.getcompressly.com.
+# Keep them out of search results so www stays the only indexed copy.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
