@@ -68,16 +68,17 @@ Canonicals, `og:url`, JSON-LD URLs, the related-converter links, the landing-pag
 `sitemap.xml` are all generated from `src/site.ts` at build time — edit that file, not the HTML.
 
 **Bare domain → www (301).** Cloudflare Pages `_redirects` cannot match on hostname, so this
-lives in the zone, not the repo: Cloudflare dashboard → `getcompressly.com` → Rules → Redirect
-Rules → Create rule:
+lives in the zone, not the repo. It is a **Page Rule** (dashboard → `getcompressly.com` → Rules →
+Page Rules), live since 2026-10-04:
 
 | Field | Value |
 |---|---|
-| If incoming requests match | Custom filter expression: `(http.host eq "getcompressly.com")` |
-| Then | Dynamic redirect |
-| Expression | `concat("https://www.getcompressly.com", http.request.uri.path)` |
-| Status code | 301 |
-| Preserve query string | On |
+| URL | `getcompressly.com/*` |
+| Setting | Forwarding URL, 301 |
+| Destination | `https://www.getcompressly.com/$1` (query string is kept) |
+
+A Redirect Rule would be the modern equivalent, but on this zone the dashboard hangs on
+Deploy for Redirect Rules (it never sends the write request), so the Page Rule is used instead.
 
 Deploy the www canonicals **before** turning this rule on: the old build's canonicals point at
 the bare domain, and pointing them at a URL that redirects back would send search engines
